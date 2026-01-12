@@ -108,6 +108,12 @@ onde α é a taxa de aprendizado (*learning rate*).
 
 Esse procedimento é iterado até convergência, maximizando a log-verossimilhança do modelo.
 
+---
+
+📎 **Material complementar (notas e deduções)**  
+Durante o desenvolvimento do projeto, foram feitas deduções e anotações matemáticas para a regressão linear, regressão logística e gradiente da log-verossimilhança.  
+Essas notas estão disponíveis em:  
+`docs/derivacoes_e_notas_modelos.pdf`
 
 ---
 
