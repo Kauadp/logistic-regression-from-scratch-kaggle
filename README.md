@@ -49,28 +49,21 @@ Para imputar valores ausentes da variável **Age**, foi utilizado um modelo de *
 
 Dado:
 
-- Matriz de variáveis explicativas: \( X \in \mathbb{R}^{n \times p} \)  
-- Vetor resposta: \( y \in \mathbb{R}^n \) (idade)
+- Matriz de variáveis explicativas: X ∈ ℝⁿˣᵖ  
+- Vetor resposta: y ∈ ℝⁿ (idade)
 
 Modelo:
 
-\[
-y = X\beta + \varepsilon
-\]
+y = Xβ + ε  
+onde: ε ~ N(0, σ² I)
 
-onde \( \varepsilon \sim \mathcal{N}(0, \sigma^2 I) \).
+O estimador de Mínimos Quadrados Ordinários (MQO) é dado por:
 
-O estimador de Mínimos Quadrados Ordinários (MQO) é obtido por:
+β̂ = (Xᵀ X)⁻¹ Xᵀ y
 
-\[
-\hat{\beta} = (X^T X)^{-1} X^T y
-\]
+As idades ausentes são imputadas por:
 
-As idades ausentes são então imputadas utilizando:
-
-\[
-\hat{y} = X \hat{\beta}
-\]
+ŷ = X β̂
 
 Dessa forma, a imputação preserva relações estatísticas entre as variáveis, em vez de utilizar valores constantes como média ou mediana.
 
@@ -82,50 +75,39 @@ O modelo de Regressão Logística foi utilizado para resolver o problema de **cl
 
 Dado:
 
-- Matriz de variáveis: \( X \in \mathbb{R}^{n \times p} \)  
-- Vetor de parâmetros: \( \beta \in \mathbb{R}^p \)
+- Matriz de variáveis: X ∈ ℝⁿˣᵖ  
+- Vetor de parâmetros: β ∈ ℝᵖ
 
 Preditor linear:
 
-\[
-z = X\beta
-\]
+z = Xβ
 
 Função sigmoide:
 
-\[
-p = \sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+p = σ(z) = 1 / (1 + e^(−z))
 
-onde \( p_i = P(Y_i = 1 \mid X_i) \).
+onde pᵢ = P(Yᵢ = 1 | Xᵢ)
 
 Assumindo:
 
-\[
-Y_i \sim \text{Bernoulli}(p_i)
-\]
+Yᵢ ~ Bernoulli(pᵢ)
 
 A log-verossimilhança do modelo é:
 
-\[
-\ell(\beta) = y^T \log(p) + (1 - y)^T \log(1 - p)
-\]
+ℓ(β) = yᵀ log(p) + (1 − y)ᵀ log(1 − p)
 
-O gradiente da log-verossimilhança é dado por:
+O gradiente da log-verossimilhança é:
 
-\[
-\nabla \ell(\beta) = X^T (y - p)
-\]
+∇ℓ(β) = Xᵀ (y − p)
 
 A estimação dos parâmetros é feita por **Gradiente Ascendente**:
 
-\[
-\beta^{(t+1)} = \beta^{(t)} + \alpha X^T (y - p)
-\]
+β^(t+1) = β^(t) + α Xᵀ (y − p)
 
-onde \( \alpha \) é a taxa de aprendizado (*learning rate*).
+onde α é a taxa de aprendizado (*learning rate*).
 
 Esse procedimento é iterado até convergência, maximizando a log-verossimilhança do modelo.
+
 
 ---
 
